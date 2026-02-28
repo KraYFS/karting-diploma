@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prettier": "npx prettier --check 'app/**/*.{js,ts,jsx,tsx,css,scss,html,json,md}'",
+    "prettier:fix": "npx prettier --write 'app/**/*.{js,ts,jsx,tsx,css,scss,html,json,md}'",
+    "lint:styles": "stylelint 'app/**/*.{scss,css}'",
+    "lint:styles:fix": "stylelint 'app/**/*.{scss,css}' --fix"
   },
   "dependencies": {
     "next": "16.1.6",
@@ -19,6 +23,12 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "prettier": "^3.8.1",
+    "sass": "^1.97.3",
+    "stylelint": "^17.4.0",
+    "stylelint-config-recess-order": "^7.6.1",
+    "stylelint-config-standard-scss": "^17.0.0",
     "typescript": "^5"
   }
 }
