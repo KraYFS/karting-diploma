@@ -1,23 +1,23 @@
 .line {
   width: 300px;
   height: auto;
-}
 
-.line-path {
-  fill: none;
-  stroke: white;
-  stroke-width: 1;
+  &__path {
+    fill: none;
+    stroke: white;
+    stroke-width: 1;
 
-  stroke-dasharray: 400;
-  stroke-dashoffset: 400;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
 
-  animation: drawLine 2s 1s forwards ease-in-out;
-}
+    animation: drawLine 2s 1s forwards ease-in-out;
+  }
 
-.line-dot {
-  fill: white;
-  opacity: 0;
-  animation: showDot 1s forwards;
+  &__dot {
+    fill: white;
+    opacity: 0;
+    animation: showDot 1s forwards;
+  }
 }
 
 @keyframes showDot {
