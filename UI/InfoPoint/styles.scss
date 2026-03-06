@@ -1,22 +1,44 @@
-.line {
-  width: 300px;
-  height: auto;
+.info-point {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 15px;
 
-  &__path {
-    fill: none;
-    stroke: white;
-    stroke-width: 1;
-
-    stroke-dasharray: 400;
-    stroke-dashoffset: 400;
-
-    animation: drawLine 2s 1s forwards ease-in-out;
+  &__text {
+    color: white;
+    font-size: 14px;
+    opacity: 0;
+    animation: showText 0.3s 2s forwards ease-in-out;
   }
 
-  &__dot {
-    fill: white;
-    opacity: 0;
-    animation: showDot 1s forwards;
+  &__line {
+    width: 300px;
+    height: auto;
+
+    &-path {
+      fill: none;
+      stroke: white;
+      stroke-width: 1;
+
+      stroke-dasharray: 400;
+      stroke-dashoffset: 400;
+
+      animation: drawLine 2s 1s forwards ease-in-out;
+    }
+
+    &-dot {
+      fill: white;
+      opacity: 0;
+      animation: showDot 1s forwards;
+    }
+  }
+}
+
+.line {
+}
+
+@keyframes showText {
+  to {
+    opacity: 1;
   }
 }
 

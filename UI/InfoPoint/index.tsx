@@ -6,12 +6,12 @@ type InfoPointProps = {
 
 const InfoPoint = ({ text }: InfoPointProps) => {
   return (
-    <div >
-      <svg className='line' viewBox='0 0 300 120'>
-        <polyline className='line__path' points='260,80 200,20 0,20' />
-        <circle cx='260' cy='80' r='4' className='line__dot' />
+    <div className='info-point'>
+      <svg className='info-point__line' viewBox='0 0 300 120'>
+        <polyline className='info-point__line-path' points='260,80 200,20 0,20' />
+        <circle cx='260' cy='80' r='4' className='info-point__line-dot' />
       </svg>
-      {text}
+      <div className='info-point__text'>{text}</div>
     </div>
   )
 }
