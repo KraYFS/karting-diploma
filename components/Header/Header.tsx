@@ -17,7 +17,7 @@ const Header = () => {
                 {label}
               </a>
             ) : (
-              <Image key={id} width={50} height={50} src={src} alt={alt} />
+              <Image loading='eager' key={id} width={50} height={50} src={src} alt={alt} />
             )
           })}
           <Input type='text' placeholder='Search' />

@@ -11,6 +11,7 @@
   border-radius: 20px;
   padding: 10px 20px;
   backdrop-filter: blur(10px);
+  transition: 0.2s all;
 
   &__icon {
     position: absolute;
@@ -18,10 +19,16 @@
   }
 
   &:focus {
+    border-color: var(--color-hover);
     outline: none;
+
+    &::placeholder {
+      transform: translateY(200%);
+    }
   }
 
   &::placeholder {
     font-weight: 600;
+    transition: 0.2s all;
   }
 }
