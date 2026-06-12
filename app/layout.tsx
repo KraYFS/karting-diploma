@@ -1,35 +1,63 @@
-import './globals.scss'
-import './variables.scss'
+import { Analytics } from '@vercel/analytics/next'
+import type { Metadata, Viewport } from 'next'
+import { Geist, Geist_Mono, Oxanium } from 'next/font/google'
+import { Toaster } from '@/components/ui/sonner'
+import './globals.css'
 
-import type { Metadata } from 'next'
-import { Montserrat } from 'next/font/google'
-
-import Header from '@/components/Header/Header'
-
-const MontserratSans = Montserrat({
-  variable: '--font-montserrat-sans',
-  subsets: ['latin']
+const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+})
+const oxanium = Oxanium({
+  variable: '--font-oxanium',
+  subsets: ['latin'],
+  weight: ['500', '600', '700', '800'],
 })
 
 export const metadata: Metadata = {
-  title: 'Karting School',
+  title: 'Apex Karting Club — Book Your Track Time',
   description:
-    'karting school website its a diploma project for 4th year students of O.M Beketov University',
+    'Reserve track sessions, manage your bookings, and race with the Apex Karting Club. Fast karts, real-time slot booking, and members-only access.',
+  generator: 'v0.app',
   icons: {
-    icon: '/favicon.ico'
-  }
+    icon: [
+      {
+        url: '/icon-light-32x32.png',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/icon-dark-32x32.png',
+        media: '(prefers-color-scheme: dark)',
+      },
+      {
+        url: '/icon.svg',
+        type: 'image/svg+xml',
+      },
+    ],
+    apple: '/apple-icon.png',
+  },
+}
+
+export const viewport: Viewport = {
+  colorScheme: 'dark',
+  themeColor: '#1a1416',
 }
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en'>
-      <body className={`${MontserratSans.variable}`}>
-        <Header />
+    <html
+      lang="en"
+      className={`dark ${geistSans.variable} ${geistMono.variable} ${oxanium.variable} bg-background`}
+    >
+      <body className="font-sans antialiased">
         {children}
+        <Toaster richColors position="top-center" />
+        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )
